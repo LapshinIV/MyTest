@@ -23,7 +23,7 @@ var input = {
         { "aisle": "aisle" },
         { "seat": "11G"},
         { "seat": "11H"},
-        { "seat": "11J"}
+        { "seaT": "11J"}
     ]
 };
 
@@ -38,43 +38,55 @@ var output = function(input) {
     var uniSpl = _.uniq(spl);                                               //оставляем уникальные символы
     var uniSplStr = uniSpl.join('');                                        //приводим к строке
     var short = uniSplStr.replace(/[^-0-9]/gim,'');                         //убираем все буквы
-
-
-    if (uniqLet.length === 6) {
-        for (var a = 0; a < 1; a++) {
-            uniqLet.splice(3, 0, "  ");
-            console.log("  " + uniqLet.join(' '))
-        }
-
-        for (var b = 1; b <= short.length; b++) {
-            console.log(b + "|"+ new Array(4).join(" .") + "  " + new Array(4).join(" .") + "|")
-        }
-    }
-
-    if (uniqLet.length === 8) {
-        for (var a = 0; a < 1; a++) {
-            uniqLet.splice(2, 0, "  ");
-            uniqLet.splice(7, 0, "  ");
-            console.log("  " + uniqLet.join(' '))
-        }
-
-        for (var b = 1; b <= short.length; b++) {
-            console.log(b + "|"+ new Array(3).join(" .") + "  " + new Array(5).join(" .") + "  " + new Array(3).join(" .") + " |")
-        }
-    }
-
-    if (uniqLet.length === 9) {
-        for (var a = 0; a < 1; a++) {
-            uniqLet.splice(3, 0, "  ");
-            uniqLet.splice(7, 0, "  ");
-            console.log("  " + uniqLet.join(' '))
-        }
-
-        for (var b = 1; b <= short.length; b++) {
-            console.log(b + "|"+ new Array(4).join(" .") + "  " + new Array(4).join(" .") + "  " + new Array(4).join(" .") + "|")
-        }
-    }
-
+    var keys;
+    var key;
+        for (var a = 0; a <= input.seatmap.length; a++){
+            for( key in input.seatmap[a]) {
+                   //console.log(key)
+                }
+            }
+console.log(key)
 };
+
+
+
+
+
+    //if (uniqLet.length === 6) {
+    //    for (var a = 0; a < 1; a++) {
+    //        uniqLet.splice(3, 0, "  ");
+    //        console.log("  " + uniqLet.join(' '))
+    //    }
+    //
+    //    for (var b = 1; b <= short.length; b++) {
+    //        console.log(b + "|"+ new Array(4).join(" .") + "  " + new Array(4).join(" .") + "|")
+    //    }
+    //}
+    //
+    //if (uniqLet.length === 8) {
+    //    for (var a = 0; a < 1; a++) {
+    //        uniqLet.splice(2, 0, "  ");
+    //        uniqLet.splice(7, 0, "  ");
+    //        console.log("  " + uniqLet.join(' '))
+    //    }
+    //
+    //    for (var b = 1; b <= short.length; b++) {
+    //        console.log(b + "|"+ new Array(3).join(" .") + "  " + new Array(5).join(" .") + "  " + new Array(3).join(" .") + " |")
+    //    }
+    //}
+    //
+    //if (uniqLet.length === 9) {
+    //    for (var a = 0; a < 1; a++) {
+    //        uniqLet.splice(3, 0, "  ");
+    //        uniqLet.splice(7, 0, "  ");
+    //        console.log("  " + uniqLet.join(' '))
+    //    }
+    //
+    //    for (var b = 1; b <= short.length; b++) {
+    //        console.log(b + "|"+ new Array(4).join(" .") + "  " + new Array(4).join(" .") + "  " + new Array(4).join(" .") + "|")
+    //    }
+    //}
+
+//};
 
 output(input);
