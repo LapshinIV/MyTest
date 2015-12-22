@@ -1,6 +1,6 @@
 #MyTest
-1.Git clone the project
-2.cd MyTest
-3.npm install underscore
-4.Run the aircraft.js file
+$ Git clone the project
+$ cd MyTest
+$ npm install underscore
+$Run the aircraft.js file
 
