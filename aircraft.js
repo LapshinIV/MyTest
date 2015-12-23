@@ -2,30 +2,39 @@ var _ = require('underscore');
 
 var input = {
     "seatmap": [
-        { "seat": "10A" },
-        { "seat": "10B" },
-        { "seat": "10C" },
-        { "aisle": "aisle" },
-        { "seat": "10D"},
-        { "seat": "10E"},
-        { "seat": "10F"},
-        { "aisle": "aisle" },
-        { "seat": "10G"},
-        { "seat": "10H"},
-        { "seat": "10J"},
-        { "seat": "11A" },
-        { "seat": "11B" },
-        { "seat": "11C" },
-        { "aisle": "aisle" },
-        { "seat": "11D"},
-        { "seat": "11E"},
-        { "seat": "11F"},
-        { "aisle": "aisle" },
-        { "seat": "11G"},
-        { "seat": "11H"},
-        { "seat": "11J"}
+        { "seat": "1A"},
+        { "seat": "1B"},
+        { "seat": "1C"},
+        { "aisle": "aisle"},
+        { "seat": "1D"},
+        { "seat": "1E"},
+        { "seat": "2A"},
+        { "seat": "2B"},
+        { "seat": "2C"},
+        { "aisle": "aisle"},
+        { "seat": "2D"},
+        { "seat": "2E"},
+        { "seat": "3A"},
+        { "seat": "3B"},
+        { "seat": "3C"},
+        { "aisle": "aisle"},
+        { "seat": "3D"},
+        { "seat": "3E"},
+        { "seat": "4A"},
+        { "seat": "4B"},
+        { "seat": "4C"},
+        { "aisle": "aisle"},
+        { "seat": "4D"},
+        { "seat": "4E"},
+        { "seat": "5A"},
+        { "seat": "5B"},
+        { "seat": "5C"},
+        { "aisle": "aisle"},
+        { "seat": "5D"},
+        { "seat": "5E"}
     ]
-};
+}
+
 
 
 
@@ -113,7 +122,7 @@ for (var i=1; i<=letters.length; i++){
         break
     }
 }
-var finF = " "+ fin.join(' ');
+var finF = fin.join('');
 console.log(finF);
 
 var num = _.flatten(test1);
@@ -125,8 +134,17 @@ for (var b = 0; b<num.length; b++){
 }
 var numTest2 = _.uniq(_.compact(numTest));
 console.log(numTest2);
+var dotArr = [];
+for (var c = 0; c < finF.length; c++) {
+    if(finF[c] !== ' '){
+        dotArr.push('.')
+    }else{
+        dotArr.push(" ")
+    }
+}
 
-//for (var c = 1; c <= numTest2.length; c++) {
-//            console.log(c + "|"+ new Array(4).join(" .") + "  " + new Array(4).join(" .") + "  " + new Array(4).join(" .") + "|")
-//        }
-//    }
+
+console.log("  "+ fin.join(''));
+for(var d = 0; d< numTest2.length; d++) {
+    console.log(numTest2[d]+ "|" + dotArr.join('')+ "|");
+}
