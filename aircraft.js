@@ -49,7 +49,7 @@ var input =
 var output = function(input) {
 
     var val = [];
-    for (var a = 0; a < input.seatmap.length; a++) {                                 //Эта функция перебором берёт все значения объектов в коллекции и копирует в новый массив в виде подмассивов
+    for (var a = 0; a < input.seatmap.length; a++) {                                 //Эта функция перебором берёт все значения объектов в коллекции и копирует в конец нового массива в виде подмассивов
         val[val.length] = _.values(input.seatmap[a]);
     }
     var oneArr = _.flatten(val);                                                    //объединяем все подмассивы в 1 массив
@@ -100,15 +100,16 @@ var output = function(input) {
     var seatAll=[];                                                                   //собираем ряды с посадочными местами(точки) в соответствии с их колличеством
     for (var c = 0; c < numUniq.length; c++) {
         var dot = numUniq[c] + "|" + dotStr.join('') + "|";
-        seatAll[seatAll.length]=dot
+        seatAll[seatAll.length]= dot
     }
     for (var d=0; d < dot.length; d++){                                               //тут выравниваем букву по позиции первой точки
         if (dot[d]=== '.'){
-            var l = dot.indexOf('.');
+            var dotPos = dot.indexOf('.');
             break;
         }
     }
-    console.log(new Array(l+1).join(" ") + fin.join(''));
+
+    console.log(new Array(dotPos+1).join(" ") + fin.join(''));
     console.log(seatAll.join('\n'))
 };
 
