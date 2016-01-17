@@ -13,21 +13,30 @@ var test =
         "14A", "14B", "14C", "aisle", "14D", "14E", "14F",
         "15A", "15B", "15C", "aisle", "15D", "15E", "15F",
         "16A", "16B", "16C", "aisle", "16D", "16E", "16F",
+        "17A", "aisle", "17E", "17F", "17G", "aisle", "17H"
     ]
 };
 
-
 console.log(
-_.foldl(
-    test.seatmap,
-        function(acc, value, index, collection){
-            if(parseInt(_.initial(value).join('')) === parseInt(_.initial(collection[index-1]).join('')) || value === 'aisle' || parseInt(_.initial(value).join('')) === parseInt(_.initial(collection[index-2]).join(''))){
-                return _.initial(acc).concat([_.last(acc).concat(value)]);
-            }else{
-                return acc.concat([[value]])
-            }
-        },
-     []
-)
+    _.reduce(
+        _.reduce(
+            test.seatmap,
+            function(acc, value, index, collection){
+                function getRowNumber (value) {return parseInt(_.initial(value).join(''))}
+                function isDifferentRow (seat1, seat2) {return getRowNumber(seat1) !== getRowNumber(seat2)}
+                if(value === 'aisle' || !isDifferentRow(value, collection[index-1]) || !isDifferentRow(value, collection[index-2])){
+                    _.last(acc).seatMap.push(value);
+                    return acc
+                }else{
+                    return acc.concat({"row": getRowNumber(value), "seatMap": [value]});
+                    //return acc.concat([[value]])
+                }
+            },
+            []
+        ),
+            function(a, i){
+                function rowToString(row) { return row.row + " |" + _.reduce(row.seatMap, function(acc, value){return acc +(value === "aisle"? ' *': ' .')}, "")+ " |\n"}
+                return a + rowToString(i);
+            },
+    "")
 );
-
